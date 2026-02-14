@@ -10,7 +10,7 @@ export default function About() {
 
       <div className="px-4 sm:px-8 md:px-32 py-16 sm:py-32 text-white">
 
-        {/* HERO */}
+        {/* HERO SECTION */}
         <section className="text-center mb-16 sm:mb-32">
           <motion.h1
             initial={{ opacity: 0, y: 60 }}
@@ -68,50 +68,62 @@ export default function About() {
           </motion.div>
         </section>
 
-        {/* SECTION FONDATEUR */}
-        <section className="grid sm:grid-cols-1 md:grid-cols-2 gap-8 md:gap-16 items-center mb-16 sm:mb-32">
-          {/* PHOTO */}
-          <motion.div
-            initial={{ opacity: 0, x: -40 }}
-            whileInView={{ opacity: 1, x: 0 }}
-            transition={{ duration: 1 }}
-            viewport={{ once: true }}
-            className="flex justify-center sm:justify-start md:justify-end"
-          >
-            <div className="w-48 h-48 sm:w-64 sm:h-64 md:w-72 md:h-72 rounded-2xl overflow-hidden border-4 border-green-500/50 shadow-2xl">
-              <img
-                src="/fondateur.jpg" // <- ton image doit être dans public/
-                alt="Fondateur NDM Agency"
-                className="w-full h-full object-cover"
-              />
-            </div>
-          </motion.div>
+        {/* SECTION FONDATEUR (TEXTE & PHOTO ALIGNÉS ET CENTRÉS) */}
+        <section className="max-w-6xl mx-auto mb-16 sm:mb-32">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-8 md:gap-16 items-center">
+            
+            {/* PHOTO : Cadre dégradé ajusté à l'image */}
+            <motion.div
+              initial={{ opacity: 0, x: -40 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              transition={{ duration: 1 }}
+              viewport={{ once: true }}
+              className="flex justify-center md:justify-end"
+            >
+              <div className="p-[3px] rounded-2xl bg-gradient-to-r from-white via-green-400 to-white shadow-[0_0_25px_rgba(34,197,94,0.2)] w-fit">
+                <div className="rounded-xl overflow-hidden bg-black flex">
+                  <img
+                    src="/fondateur.jpg"
+                    alt="Fondateur NDM Agency"
+                    className="max-w-[280px] sm:max-w-[350px] md:max-w-[400px] w-full h-auto block" 
+                  />
+                </div>
+              </div>
+            </motion.div>
 
-          {/* BIOGRAPHIE */}
-          <motion.div
-            initial={{ opacity: 0, x: 40 }}
-            whileInView={{ opacity: 1, x: 0 }}
-            transition={{ duration: 1 }}
-            viewport={{ once: true }}
-            className="p-4 sm:p-8 bg-white/5 backdrop-blur-md rounded-2xl border border-green-500/20 shadow-2xl text-sm sm:text-base"
-          >
-            <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold text-green-400 mb-2 sm:mb-4">
-              MR NACIRI Mohamed Mamoun
-            </h2>
-            <h3 className="text-base sm:text-xl text-white/80 mb-4 sm:mb-6">Fondateur & Directeur de NDM Agency</h3>
-            <p className="text-white/70 leading-relaxed mb-2 sm:mb-4">
-              Depuis le lancement de NDM Agency, j’ai mis toute mon énergie et ma vision dans
-              la création d’une agence digitale qui allie innovation, performance et élégance.
-              Chaque projet est pour moi une opportunité de repousser les limites et de
-              montrer que NDM est bien plus qu’une agence : c’est une grande aventure
-              digitale qui inspire et transforme les idées en succès concrets.
-            </p>
-            <p className="text-white/70 leading-relaxed">
-              Fier et engagé, je veille à ce que chaque client bénéficie de solutions
-              sur-mesure, avec sérieux et créativité. Rejoignez-nous pour vivre
-              l’expérience NDM et voir votre projet atteindre son plein potentiel.
-            </p>
-          </motion.div>
+            {/* TEXTE : Nom en vert fixe */}
+            <motion.div
+              initial={{ opacity: 0, x: 40 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              transition={{ duration: 1 }}
+              viewport={{ once: true }}
+              className="text-center md:text-left"
+            >
+              <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold text-green-400 mb-2">
+                MR NACIRI Mohamed Mamoun
+              </h2>
+              <h3 className="text-lg sm:text-xl text-white/90 font-medium mb-6 uppercase tracking-widest">
+                Fondateur & Directeur de NDM Agency
+              </h3>
+              
+              <div className="space-y-4 text-white/70 text-base sm:text-lg leading-relaxed">
+                <p>
+                  Depuis le lancement de NDM Agency, j’ai mis toute mon énergie et ma vision dans
+                  la création d’une agence digitale qui allie innovation, performance et élégance.
+                </p>
+                <p>
+                  Chaque projet est pour moi une opportunité de repousser les limites et de
+                  montrer que NDM est bien plus qu’une agence : c’est une grande aventure
+                  digitale qui inspire et transforme les idées en succès concrets.
+                </p>
+                <p>
+                  Fier et engagé, je veille à ce que chaque client bénéficie de solutions
+                  sur-mesure, avec sérieux et créativité. Rejoignez-nous pour vivre
+                  l’expérience NDM et voir votre projet atteindre son plein potentiel.
+                </p>
+              </div>
+            </motion.div>
+          </div>
         </section>
 
         {/* SECTION CHIFFRES */}
@@ -126,7 +138,7 @@ export default function About() {
             Nos Résultats
           </motion.h2>
 
-          <div className="grid grid-cols-1 sm:grid-cols-1 md:grid-cols-2 gap-6 sm:gap-12">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-6 sm:gap-12">
             {[
               { number: "50+", label: "Projets réalisés" },
               { number: "100%", label: "Engagement & qualité" },
