@@ -1,0 +1,99 @@
+@import "tailwindcss";
+
+/* ================= ROOT ================= */
+
+:root {
+  --background: #0a0a0a;
+  --foreground: #ededed;
+}
+
+body {
+  background: var(--background);
+  color: var(--foreground);
+  font-family: Arial, Helvetica, sans-serif;
+  overflow-x: hidden;
+}
+
+/* ================= TITRES 3D ULTRA PREMIUM ================= */
+
+.title-3d {
+  font-weight: 900;
+  text-transform: uppercase;
+  letter-spacing: 3px;
+  position: relative;
+  display: inline-block;
+  color: #1ED760;
+  transform-style: preserve-3d;
+  transition: transform 0.3s ease;
+}
+
+/* couche arrière profondeur */
+.title-3d::before {
+  content: attr(data-text);
+  position: absolute;
+  top: 0;
+  left: 0;
+  transform: translateZ(-20px);
+  color: rgba(0, 0, 0, 0.5);
+  filter: blur(4px);
+}
+
+/* ombre forte */
+.title-3d::after {
+  content: attr(data-text);
+  position: absolute;
+  top: 0;
+  left: 0;
+  transform: translateZ(-40px);
+  color: rgba(0, 0, 0, 0.3);
+  filter: blur(8px);
+}
+
+/* glow neon */
+.title-3d {
+  text-shadow:
+    0 0 10px rgba(30, 215, 96, 0.8),
+    0 0 20px rgba(30, 215, 96, 0.6),
+    0 0 40px rgba(30, 215, 96, 0.4);
+}
+
+/* animation flottante */
+@keyframes float3d {
+  0%,100% { transform: rotateX(0deg) rotateY(0deg); }
+  50% { transform: rotateX(8deg) rotateY(-8deg); }
+}
+
+.animate-3d {
+  animation: float3d 6s ease-in-out infinite;
+}
+
+/* effet impact entrée */
+@keyframes impact {
+  0% { transform: scale(0.6); opacity: 0; }
+  70% { transform: scale(1.1); }
+  100% { transform: scale(1); opacity: 1; }
+}
+
+.animate-impact {
+  animation: impact 0.8s ease forwards;
+}
+
+@keyframes gradientMove {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
+.animate-gradient {
+  animation: gradientMove 6s ease infinite;
+}
+
+.stroke-white\/10 {
+  -webkit-text-stroke: 1px rgba(255, 255, 255, 0.08);
+}
