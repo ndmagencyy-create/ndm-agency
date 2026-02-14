@@ -18,13 +18,15 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
   const logoRef = useRef<HTMLDivElement | null>(null);
 
   useEffect(() => {
+    // Début de la transition
     setShowTransition(true);
-    setDisplayChildren(false); // cacher le contenu dès que la transition commence
+    setDisplayChildren(false); // masquer le contenu dès le début
 
+    // Durée exacte de l'animation du logo (1s pour mobile)
     const timer = setTimeout(() => {
       setShowTransition(false);
-      setDisplayChildren(true); // montrer le contenu après la fin
-    }, 1600); // durée totale de la transition
+      setDisplayChildren(true); // montrer le contenu dès que le logo est revenu
+    }, 1000); // <-- 1 seconde = durée totale du logo aller-retour
 
     return () => clearTimeout(timer);
   }, [pathname]);
